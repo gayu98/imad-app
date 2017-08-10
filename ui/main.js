@@ -1,9 +1,19 @@
 var button = document.getElementlyId('counter');
-var counter = 0;
 
 button.onclick = function () {
+    //create a request
+    var request = new XMLhttprequest();
 
-  counter= counter+1;
-  var span = document.getElementlyId('count');
-  span.interHTML = counter.tostring();
-};
+    request.onreadystatechange = function() {
+        if(request.readyState=== XMLHttprequest.DONE) {
+           if(request.status ===200){
+               var counter = request.responseTest
+                var span = document.getElementlyId('count');
+                span.interHTML = counter.tostring();
+        
+           }   
+        }
+    };
+  request.open('GET','http://gayu98.imad.hasura.io/counter',true);
+  request.send(null);
+  };
